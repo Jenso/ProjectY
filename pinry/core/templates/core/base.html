@@ -12,7 +12,7 @@
 
             <link rel="stylesheet" href="{{ STATIC_URL }}core/css/pinry.css">
         {% endcompress %}
-
+        	<link rel="stylesheet" href="{{ STATIC_URL }}core/css/custom-lookify.css">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Monoton">
 
 	    {% if settings.GOOGLE_ANALYTICS_KEY %}
@@ -34,7 +34,7 @@
     <body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
-                <a href="{% url core:home %}" class="brand">{{ site_name }}</a>
+                <a href="{% url core:home %}" class="brand"><img src="{{ STATIC_URL }}media/img/logo.png"/></a>
 
                 <ul class="nav pull-right">
                     {% if user.is_authenticated %}
