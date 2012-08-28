@@ -87,6 +87,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'storages',
     'pinry.index',
+    'django.contrib.admin',
 )
 
 AWS_ACCESS_KEY_ID = 'AKIAJHCGEY6XAXXOSYXA'
