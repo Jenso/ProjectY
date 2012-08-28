@@ -26,9 +26,9 @@ class LoadImagesView(TemplateView):
 
             i = 0
             for el in elem:
-                i += 1
-                if i > 22:
-                    break
+                #i += 1
+                #if i > 22:
+                #    break
             
                 try:
                     # dont add products which already have been added

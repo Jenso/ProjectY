@@ -17,14 +17,14 @@
 
 	    {% if settings.GOOGLE_ANALYTICS_KEY %}
     <script type="text/javascript">
-    var _gaq = _gaq || [];
+      var _gaq = _gaq || [];
       _gaq.push(['_setAccount', '{{ settings.GOOGLE_ANALYTICS_KEY }}']);
-    _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
     {% endif %}
@@ -38,11 +38,12 @@
 
                 <ul class="nav pull-right">
                     {% if user.is_authenticated %}
-                        <li><a href="#new-pin" data-toggle="modal">New Pin</a></li>
-                        <li><a href="{% url core:logout %}">Logout</a></li>
+                    <li><a href="#new-pin" data-toggle="modal">New Pin - BORT!!</a></li>
+                        <li><a href="{% url core:logout %}">Logga ut</a></li>
                     {% else %}
-                        <li><a href="{% url core:login %}">Login</a></li>
-                        <li><a href="{% url core:register %}">Register</a></li>
+			<!--
+                        <li><a href="{% url core:login %}">Logga in</a></li>
+                        <li><a href="{% url core:register %}">Registrera</a></li>-->
                     {% endif %}
                 </ul>
             </div>

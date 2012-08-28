@@ -18,8 +18,7 @@ def private(request):
 
 def register(request):
     if not settings.ALLOW_NEW_REGISTRATIONS:
-        messages.error(request, "The admin of this service is not "
-                                "allowing new registrations.")
+        messages.error(request, "Just nu kan du inte skapa konto, kommer snart.")
         return HttpResponseRedirect(reverse('pins:recent-pins'))
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
