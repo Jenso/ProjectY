@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'storages',
     'pinry.index',
     'django.contrib.admin',
+    'gunicorn',
 )
 
 AWS_ACCESS_KEY_ID = 'AKIAJHCGEY6XAXXOSYXA'
