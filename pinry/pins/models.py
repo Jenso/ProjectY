@@ -2,20 +2,32 @@ from django.db import models
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 from django.contrib.auth.models import User
+from pinry.loadimages.models import Feeds
 
 import urllib2
 import os
 from PIL import Image
+
+class Category(models.Model):
+    name = models.CharField("Category name", max_length=80)
 
 
 class Pin(models.Model):
     submitter = models.ForeignKey(User)
     url = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
+    real_description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='pins/pin/originals/')
     thumbnail = models.ImageField(upload_to='pins/pin/thumbnails/')
     published = models.DateTimeField(auto_now_add=True)
-
+    category = models.ForeignKey(Category, null=True, blank=True)
+    price = models.IntegerField(max_length=20, blank=True, null=True)
+    tracking_url = models.TextField(blank=True, null=True)
+    product_url = models.TextField(blank=True, null=True)
+    name = models.TextField(blank=True, null=True)
+    brand = models.TextField(blank=True, null=True)
+    sku = models.TextField(blank=True, null=True)
+    store = models.ForeignKey(Feeds, null=True, blank=True)
 
     def __unicode__(self):
         return self.url

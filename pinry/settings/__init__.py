@@ -78,4 +78,6 @@ INSTALLED_APPS = (
     'pinry.core',
     'pinry.pins',
     'pinry.api',
+    'pinry.loadimages',
+    'django_extensions',
 )
