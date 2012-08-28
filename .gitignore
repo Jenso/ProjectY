@@ -37,3 +37,4 @@ bootstrap/static/css/style.css
 fabsettings.py
 settings/local.py
 analytics.dat
+*manage.py*

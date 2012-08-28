@@ -12,7 +12,7 @@ ADMINS = (
 SITE_NAME = 'Pinry'
 
 # Set to False to disable people from creating new accounts.
-ALLOW_NEW_REGISTRATIONS = True
+ALLOW_NEW_REGISTRATIONS = False
 
 # Set to False to force users to login before seeing any pins. 
 PUBLIC = True
@@ -56,6 +56,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
     "pinry.core.context_processors.template_settings",
+    'pinry.index.context_processors.django_settings',
 )
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.cssmin.CSSMinFilter']
@@ -85,7 +86,9 @@ INSTALLED_APPS = (
     'pinry.loadimages',
     'django_extensions',
     'storages',
+    'pinry.index',
 )
 
 AWS_ACCESS_KEY_ID = 'AKIAJHCGEY6XAXXOSYXA'
 AWS_SECRET_ACCESS_KEY = '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'
+GOOGLE_ANALYTICS_KEY = ''
