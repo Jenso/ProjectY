@@ -5,6 +5,7 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+DEVELOPMENT = True
 
 DATABASES = {
     'default': {

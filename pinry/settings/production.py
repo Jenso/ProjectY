@@ -5,6 +5,7 @@ import os
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+PRODUCTION = True
 
 # TODO: I recommend using psycopg2 w/ postgres but sqlite3 is good enough.
 DATABASES = {
@@ -12,9 +13,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'projecty',                      
         'USER': 'projecty',
-        'PASSWORD': 'dxobbmei',
+        'PASSWORD': 'ASKDl23elALJKAHSDjhj2k13h',
     }
 }
 
 # TODO: Be sure to set this.
-SECRET_KEY = ''
+SECRET_KEY = 'KJASDKLJKLJ12312JKLKLJ213'
