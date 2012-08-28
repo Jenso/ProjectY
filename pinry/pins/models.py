@@ -49,7 +49,8 @@ class Pin(models.Model):
                 image = Image.open(temp_img.name)
             else:
                 super(Pin, self).save()
-                image = Image.open(self.image.path)
+                from django.core.files.storage import default_storage
+                image = Image.open(default_storage.open(self.image.name))
             size = image.size
             prop = 200.0 / float(image.size[0])
             size = (int(prop*float(image.size[0])), int(prop*float(image.size[1])))

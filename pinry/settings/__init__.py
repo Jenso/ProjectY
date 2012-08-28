@@ -4,6 +4,9 @@ from django.contrib.messages import constants as messages
 
 SITE_ROOT = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../../')
 
+ADMINS = (
+    ('Jenso', 'jenso1988@gmail.com'),
+)
 
 # Changes the naming on the front-end of the website.
 SITE_NAME = 'Pinry'
@@ -25,6 +28,7 @@ MEDIA_ROOT = os.path.join(SITE_ROOT, 'media/')
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(SITE_ROOT, 'static/')
 STATIC_URL = '/static/'
+
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -80,4 +84,8 @@ INSTALLED_APPS = (
     'pinry.api',
     'pinry.loadimages',
     'django_extensions',
+    'storages',
 )
+
+AWS_ACCESS_KEY_ID = 'AKIAJHCGEY6XAXXOSYXA'
+AWS_SECRET_ACCESS_KEY = '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'
