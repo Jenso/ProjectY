@@ -4,18 +4,23 @@ from .models import Pin
 
 
 class PinForm(forms.ModelForm):
-    url = forms.CharField(label='URL', required=False)
+    url = forms.CharField(label='Picture URL', required=False)
     image = forms.ImageField(label='or Upload', required=False)
-    product_url = forms.CharField(label='Product URL', required=False)
-
-
+    tracking_url = forms.CharField(label='Tracking URL', required=False)
+    price = forms.IntegerField(label='Price', required=False)
+    name = forms.CharField(label='Name', required=False)
+    brand = forms.CharField(label='Brand', required=False)
+    
     def __init__(self, *args, **kwargs):
         super(forms.ModelForm, self).__init__(*args, **kwargs)
         self.fields.keyOrder = (
+        	'name',
+        	'brand',
+            'price',
             'url',
             'image',
             'description',
-            'product_url',
+            'tracking_url',
         )
 
 
@@ -63,4 +68,4 @@ class PinForm(forms.ModelForm):
 
     class Meta:
         model = Pin
-        exclude = ['submitter', 'thumbnail', 'category', 'price', 'tracking_url']
+        exclude = ['submitter', 'thumbnail', 'category', 'product_url']

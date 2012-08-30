@@ -2,3 +2,31 @@
 	height:36px;
 }
 
+
+.product-overlay{
+	display:none;
+	
+}
+
+.product-overlay img{
+	height:450px;
+	display:inline-block;
+}
+
+.product-info{
+	float:right;
+}
+
+.product-overlay p{
+}
+
+.overlay-name{
+	
+}
+
+.overlay-brand{
+	
+}
+
+.overlay-description{
+}
