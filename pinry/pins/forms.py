@@ -6,6 +6,7 @@ from .models import Pin
 class PinForm(forms.ModelForm):
     url = forms.CharField(label='URL', required=False)
     image = forms.ImageField(label='or Upload', required=False)
+    product_url = forms.CharField(label='Product URL', required=False)
 
 
     def __init__(self, *args, **kwargs):
@@ -14,6 +15,7 @@ class PinForm(forms.ModelForm):
             'url',
             'image',
             'description',
+            'product_url',
         )
 
 
@@ -61,4 +63,4 @@ class PinForm(forms.ModelForm):
 
     class Meta:
         model = Pin
-        exclude = ['submitter', 'thumbnail', 'category', 'price', 'tracking_url', 'product_url']
+        exclude = ['submitter', 'thumbnail', 'category', 'price', 'tracking_url']

@@ -28,6 +28,7 @@ class Pin(models.Model):
     brand = models.TextField(blank=True, null=True)
     sku = models.TextField(blank=True, null=True)
     store = models.ForeignKey(Feeds, null=True, blank=True)
+    
 
     def __unicode__(self):
         return self.url
