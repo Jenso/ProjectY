@@ -87,7 +87,7 @@ $.fn.wookmark = function(options) {
       });
       
       // Update column height.
-      heights[shortestIndex] = shortest + item.outerHeight() + this.wookmarkOptions.offset;
+      heights[shortestIndex] = shortest + item.outerHeight() + this.wookmarkOptions.offset + 10;
       bottom = Math.max(bottom, heights[shortestIndex]);
       
       this.wookmarkColumns[shortestIndex].push(item);

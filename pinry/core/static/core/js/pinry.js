@@ -58,30 +58,38 @@ $(window).ready(function () {
         var html = '';
         var i=0, length=data.length, image;
         for(; i<length; i++) {
-          image = data[i];
-          html += '<div class="pin">';
-              html += '<div class="pin-options">';
-                  html += '<a href="/pins/delete-pin/'+image.id+'">';
-                      html += '<i class="icon-trash"></i>';
-                  html += '</a>';
-              html += '</div>';
-              html += '<a class="fancybox" rel="pins" href="#'+image.id+'">';
-                  html += '<img src="'+image.thumbnail+'" width="200" >';
-              html += '</a>';
-              html += '<p>'+image.name+'</p>';
-              html += '<p>'+image.description+'</p>';
-              html += '<p>SEK '+image.price+'</p>';
-              html += '<a class="btn btn-info" href="'+image.tracking_url+'">G&aring; till butik</a>';
-          html += '</div>';
-          
-          html += '<div class="product-overlay" id="'+image.id+'">'
-          html += '<img src="'+image.image+'"/>'
-          html += '<div class="product-info">'
-          html += '<p class="overlay-name">'+image.name+'</p>';
-          html += '<p class="overlay-brand">'+image.brand+'</p>';
-          html += '<p class="overlay-description">'+image.description+'</p>';
-          html += '</div>'
-          html += '</div>'
+	          image = data[i];
+	          html += '<div class="pin">';
+	              /*
+html += '<div class="pin-options">';
+	                  html += '<a href="/pins/delete-pin/'+image.id+'">';
+	                      html += '<i class="icon-trash"></i>';
+	                  html += '</a>';
+	              html += '</div>';
+*/
+	              html += '<a class="fancybox" rel="pins" href="#'+image.id+'">';
+	                  html += '<img src="'+image.thumbnail+'" width="200" >';	              
+	                  html += '<strong class="PriceContainer">'
+	                  html += '<p class="product-price">SEK '+image.price+'</p>';
+	              html += '</strong>'
+	              html += '</a>';
+	              html += '<p class="product-name">'+image.name+'</p>';
+	              html += '<p class="product-brand">'+image.brand+'</p>';
+
+	          html += '</div>';
+	          
+	          html += '<div class="product-overlay" id="'+image.id+'">'
+	          html += '<img src="'+image.image+'"/>'
+	          html += '<div class="product-info">'
+	          html += '<p class="overlay-name">'+image.name+'</p>';
+	          html += '<p class="overlay-brand"><span>Fr&aring;n </span>'+image.brand+'</p>';
+	          html += '<p class="overlay-price">'+image.price+' SEK</p>';	          
+	          html += '<p class="overlay-description">'+image.description+'</p>';
+	          html += '<a class="btn btn-warning btn-large" href="'+image.tracking_url+'">MER INFO</a>';
+	          html += '<a class="btn btn-warning btn-large" href="'+image.tracking_url+'">K&Ouml;P</a>';
+	          
+	          html += '</div>'
+	          html += '</div>'
         }
         
         
@@ -100,6 +108,7 @@ $(window).ready(function () {
      */
     $('.fancybox').fancybox({
         openEffect: 'none',
-        closeEffect: 'none'
+        closeEffect: 'none',
+        arrows: false,
     });
 });
