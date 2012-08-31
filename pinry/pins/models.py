@@ -10,6 +10,9 @@ from PIL import Image
 
 class Category(models.Model):
     name = models.CharField("Category name", max_length=80)
+    def __unicode__(self):
+        return self.name
+
 
 
 class Pin(models.Model):

@@ -38,7 +38,16 @@ SENTRY_DSN = 'http://5b583ce9e2134c528c2c2c84ce4fa87d:8e82a7a561e147058d71fc4b2e
 
 LOGGING = SENTRY_LOGGING
 
+import djcelery
+djcelery.setup_loader()
+
+BROKER_URL = 'amqp://guest:guest@localhost:5672/'
+#BROKER_URL = "django://"
+CELERY_IMPORTS = ('celerytest.tasks','pinry.loadimages.views',)
+
 # Add raven to the list of installed apps (sentry logging client)
 INSTALLED_APPS = INSTALLED_APPS + (
     'raven.contrib.django',
+    'djcelery',
     )
+

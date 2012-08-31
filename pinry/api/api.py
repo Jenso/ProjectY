@@ -7,14 +7,16 @@ from django.contrib.auth.models import User
 
 from pinry.pins.models import Pin
 
-
+from tastypie.constants import ALL
 class PinResource(ModelResource):  # pylint: disable-msg=R0904
     class Meta:
+        #queryset = Pin.objects.filter(category__name="Speedos")
         queryset = Pin.objects.all()
         resource_name = 'pin'
         include_resource_uri = False
         filtering = {
             'published': ['gt'],
+            "category": (ALL),
         }
 
 

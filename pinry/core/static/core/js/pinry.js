@@ -2,7 +2,7 @@
  * Based on Wookmark's endless scroll.
  */
 $(window).ready(function () {
-    var apiURL = '/api/pin/?format=json&offset='
+    var apiURL = '/api/pin/?category__name=Speedos?format=json&offset='
     var page = 0;
     var handler = null;
     var isLoading = false;
