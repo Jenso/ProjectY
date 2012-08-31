@@ -37,6 +37,8 @@ class Pin(models.Model):
     def save(self, *args, **kwargs):
         hash_name = os.urandom(32).encode('hex')
 
+        # disabled image management for now
+        """
         if not self.image:
             temp_img = NamedTemporaryFile()
             temp_img.write(urllib2.urlopen(self.url).read())
@@ -59,7 +61,7 @@ class Pin(models.Model):
             temp_thumb = NamedTemporaryFile()
             image.save(temp_thumb.name, 'JPEG')
             self.thumbnail.save(''.join([hash_name, '.jpg']), File(temp_thumb))
-
+            """
         super(Pin, self).save(*args, **kwargs)
 
 
