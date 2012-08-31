@@ -5,7 +5,6 @@ import sys
 from pinry.pins.models import Pin, Category
 from pinry.loadimages.models import FailedSKUs, Feeds
 import celery
-from celerytest.tasks import add
 
 @celery.task
 def loadfeeds():
