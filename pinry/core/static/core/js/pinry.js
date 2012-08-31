@@ -12,7 +12,7 @@ $(window).ready(function () {
      */
     function onScroll(event) {
       if(!isLoading) {
-          var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100 + 10);
+          var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100 - 500);
           if(closeToBottom) loadData();
       }
     };
