@@ -12,7 +12,7 @@ $(window).ready(function () {
      */
     function onScroll(event) {
       if(!isLoading) {
-          var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100);
+          var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100 + 10);
           if(closeToBottom) loadData();
       }
     };
@@ -68,7 +68,7 @@ html += '<div class="pin-options">';
 	              html += '</div>';
 */
 	              html += '<a class="fancybox" rel="pins" href="#'+image.id+'">';
-	                  html += '<img src="'+image.thumbnail+'" width="200" >';	              
+	                  html += '<img src="'+image.url+'" width="200" >';	              
 	                  html += '<strong class="PriceContainer">'
 	                  html += '<p class="product-price">SEK '+image.price+'</p>';
 	              html += '</strong>'
@@ -79,7 +79,7 @@ html += '<div class="pin-options">';
 	          html += '</div>';
 	          
 	          html += '<div class="product-overlay" id="'+image.id+'">'
-	          html += '<img src="'+image.image+'"/>'
+	          html += '<img src="'+image.url+'"/>'
 	          html += '<div class="product-info">'
 	          html += '<p class="overlay-name">'+image.name+'</p>';
 	          html += '<p class="overlay-brand"><span>Fr&aring;n </span>'+image.brand+'</p>';
