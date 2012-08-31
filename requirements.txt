@@ -11,4 +11,4 @@ elementtree==1.2.7-20070827-preview
 boto==2.3.0
 django-storages==1.1.4
 gunicorn==0.14.2
-
+raven==1.8.4
