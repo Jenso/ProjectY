@@ -9,7 +9,7 @@ ADMINS = (
 )
 
 # Changes the naming on the front-end of the website.
-SITE_NAME = 'Pinry'
+SITE_NAME = 'Lookify'
 
 # Set to False to disable people from creating new accounts.
 ALLOW_NEW_REGISTRATIONS = False
