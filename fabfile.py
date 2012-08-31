@@ -61,6 +61,8 @@ def test():
 def collectstatic():
     virtualenv("./manage.py collectstatic --noinput")
 
+def compress():
+    virtualenv("./manage.py compress")
 
 def compile_less():
     """ TODO: Compile all files in a folder instead """
@@ -113,6 +115,7 @@ def deploy_db_change(branch='master'):
     install_requirements()
     update_git_submodules()
     migrate()
+    compress()
     collectstatic()
     restart_gunicorn()
 
@@ -121,5 +124,6 @@ def deploy(branch='master'):
     git_pull(branch=branch)
     install_requirements()
     update_git_submodules()
+    compress()
     collectstatic()
     restart_gunicorn()
