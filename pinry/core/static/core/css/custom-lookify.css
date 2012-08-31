@@ -1,7 +1,14 @@
-.navbar-inner .brand img {
+.navbar-inner .brand {
 	height:36px;
+	display: block;
+	width: 200px;
+	background-repeat: no-repeat;
+	margin-left:-120px;
+	margin-top:5px;
+	  position: fixed;
+  left: 50%;
+  z-index: 1000;
 }
-
 
 .product-overlay{
 	display:none;
@@ -110,4 +117,9 @@
 
 .overlay-description{
 	margin-top:30px;
+	font-size: 12px;
+	line-height: 15px;
+	font-weight: 400;
+	max-width: 250px;
 }
+

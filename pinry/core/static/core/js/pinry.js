@@ -61,8 +61,8 @@ $(window).ready(function () {
 	          image = data[i];
 	          html += '<div class="pin">';
 	              /*
-html += '<div class="pin-options">';
-	                  html += '<a href="/pins/delete-pin/'+image.id+'">';
+	              html += '<div class="pin-options">';
+	                  html += '<a href="/start/delete-pin/'+image.id+'">';
 	                      html += '<i class="icon-trash"></i>';
 	                  html += '</a>';
 	              html += '</div>';
@@ -84,7 +84,7 @@ html += '<div class="pin-options">';
 	          html += '<p class="overlay-name">'+image.name+'</p>';
 	          html += '<p class="overlay-brand"><span>Fr&aring;n </span>'+image.brand+'</p>';
 	          html += '<p class="overlay-price">'+image.price+' SEK</p>';	          
-	          html += '<p class="overlay-description">'+image.description+'</p>';
+	          html += '<p class="overlay-description">'+image.real_description+'</p>';
 	          html += '<a class="btn btn-warning btn-large" href="'+image.tracking_url+'">MER INFO</a>';
 	          html += '<a class="btn btn-warning btn-large" href="'+image.tracking_url+'">K&Ouml;P</a>';
 	          
