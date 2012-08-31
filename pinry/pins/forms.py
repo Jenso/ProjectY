@@ -10,7 +10,8 @@ class PinForm(forms.ModelForm):
     price = forms.IntegerField(label='Price', required=False)
     name = forms.CharField(label='Name', required=False)
     brand = forms.CharField(label='Brand', required=False)
-    
+    real_description = forms.CharField(label='Real Description', required=False)
+        
     def __init__(self, *args, **kwargs):
         super(forms.ModelForm, self).__init__(*args, **kwargs)
         self.fields.keyOrder = (
@@ -19,7 +20,7 @@ class PinForm(forms.ModelForm):
             'price',
             'url',
             'image',
-            'description',
+            'real_description',
             'tracking_url',
         )
 
