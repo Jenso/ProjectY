@@ -3,20 +3,21 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{{ site_name }} - {% block title %}{% endblock %}</title>
+  <head>
+    <title>{{ site_name }} - {% block title %}{% endblock %}</title>
 
-        {% compress css %}
-            <link rel="stylesheet" href="{{ STATIC_URL }}vendor/bootstrap/2.0.3/css/bootstrap.css">
-            <link rel="stylesheet" href="{{ STATIC_URL }}vendor/fancybox/2.0.6/jquery.fancybox.css">
+    {% compress css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}vendor/bootstrap/2.0.3/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}vendor/fancybox/2.0.6/jquery.fancybox.css">
 
-            <link rel="stylesheet" href="{{ STATIC_URL }}core/css/pinry.css">
-        {% endcompress %}
-        	<link rel="stylesheet" href="{{ STATIC_URL }}core/css/custom-lookify.css">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Monoton">
+    <link rel="stylesheet" href="{{ STATIC_URL }}core/css/pinry.css">
+    {% endcompress %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}core/css/custom-lookify.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Monoton">
 
-	    {% if settings.GOOGLE_ANALYTICS_KEY %}
+
     <script type="text/javascript">
+      {% if settings.GOOGLE_ANALYTICS_KEY %}
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', '{{ settings.GOOGLE_ANALYTICS_KEY }}']);
       _gaq.push(['_trackPageview']);
@@ -26,51 +27,53 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+
+      {% else %}
+      var _gaq = _gaq || [];
+      {% endif %}
     </script>
-    {% endif %}
-    
     <!-- TradeDoubler site verification 2159754 -->
 
-    </head>
-    <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <a href="{% url core:home %}" class="brand" style="background-image:url('{{ STATIC_URL }}media/img/logo.png');background-repeat:none;"/></a>
-                <ul class="nav pull-right">
-                    {% if user.is_authenticated %}
-                    <li><a href="#new-pin" data-toggle="modal">New Pin - BORT!!</a></li>
-                        <li><a href="{% url core:logout %}">Logga ut</a></li>
-                    {% else %}
-			<!--
-                        <li><a href="{% url core:login %}">Logga in</a></li>
-                        <li><a href="{% url core:register %}">Registrera</a></li>-->
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <a href="{% url core:home %}" class="brand" style="background-image:url('{{ STATIC_URL }}media/img/logo.png');background-repeat:none;"/></a>
+<ul class="nav pull-right">
+  {% if user.is_authenticated %}
+  <li><a href="#new-pin" data-toggle="modal">New Pin - BORT!!</a></li>
+  <li><a href="{% url core:logout %}">Logga ut</a></li>
+  {% else %}
+  <!--
+      <li><a href="{% url core:login %}">Logga in</a></li>
+  <li><a href="{% url core:register %}">Registrera</a></li>-->
+  {% endif %}
+</ul>
+</div>
+</div>
 
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
 
-        {% block yield %}{% endblock %}
+{% block yield %}{% endblock %}
 
-        {% new_pin request %}
+{% new_pin request %}
 
-        {% compress js %}
-            <script src="{{ STATIC_URL }}vendor/jquery/1.7.2/jquery.js"></script>
-            <script src="{{ STATIC_URL }}vendor/bootstrap/2.0.3/js/bootstrap.js"></script>
-            <script src="{{ STATIC_URL }}vendor/wookmark/0.5/jquery.wookmark.js"></script>
-            <script src="{{ STATIC_URL }}vendor/fancybox/2.0.6/jquery.fancybox.js"></script>
-            <script src="{{ STATIC_URL }}vendor/imagesloaded/2.0.1/jquery.imagesloaded.js"></script>
+{% compress js %}
+<script src="{{ STATIC_URL }}vendor/jquery/1.7.2/jquery.js"></script>
+<script src="{{ STATIC_URL }}vendor/bootstrap/2.0.3/js/bootstrap.js"></script>
+<script src="{{ STATIC_URL }}vendor/wookmark/0.5/jquery.wookmark.js"></script>
+<script src="{{ STATIC_URL }}vendor/fancybox/2.0.6/jquery.fancybox.js"></script>
+<script src="{{ STATIC_URL }}vendor/imagesloaded/2.0.1/jquery.imagesloaded.js"></script>
 
-            <script src="{{ STATIC_URL }}core/js/pinry.js"></script>
-            <script src="{{ STATIC_URL }}core/js/messages.js"></script>
-        {% endcompress %}
+<script src="{{ STATIC_URL }}core/js/pinry.js"></script>
+<script src="{{ STATIC_URL }}core/js/messages.js"></script>
+{% endcompress %}
 
-    </body>
+</body>
 </html>

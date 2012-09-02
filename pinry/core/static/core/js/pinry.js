@@ -53,9 +53,7 @@ $(window).ready(function () {
         isLoading = false;
         $('#loader').hide();
 
-	if (typeof _gaq != 'undefined') {
-            _gaq.push(['_trackEvent', 'Visited page', page, page, page])
-        }
+        _gaq.push(['_trackEvent', 'Visited page', page, page, page])
 
         page++;
 
@@ -63,6 +61,9 @@ $(window).ready(function () {
         var i=0, length=data.length, image;
         for(; i<length; i++) {
             image = data[i];
+
+	    // FIXME: all this html code should be a underscore template -> we dont need a frigging if case here
+
             html += '<div class="pin">';
             /*
               html += '<div class="pin-options">';
@@ -89,19 +90,11 @@ $(window).ready(function () {
             html += '<p class="overlay-brand"><span>Fr&aring;n </span>'+image.brand+'</p>';
             html += '<p class="overlay-price">'+image.price+' SEK</p>';
             html += '<p class="overlay-description">'+image.real_description+'</p>';
-
-	    // all this html code should be a underscore template -> we dont need a frigging if case here
-            if (typeof _gaq != 'undefined') {
-                html += '<a onclick="_gaq.push(["_trackEvent", "Image overlay", "Click - mer info"])" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">MER INFO</a>';
-                html += '<a onclick="_gaq.push(["_trackEvent", "Image overlay", "Click - buy"])" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">K&Ouml;P</a>';
-	    } else {
-                html += '<a target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">MER INFO</a>';
-                html += '<a target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">K&Ouml;P</a>';
-		
-	    }
-                html += '</div>'
-                html += '</div>'
-            }
+            html += '<a onclick="_gaq.push([&quot;_trackEvent&quot;, &quot;Image overlay&quot;, &quot;Click - mer info&quot;])" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">MER INFO</a>';
+            html += '<a onclick="_gaq.push([&quot;_trackEvent&quot;, &quot;Image overlay&quot;, &quot;Click - buy&quot;])" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">K&Ouml;P</a>';
+            html += '</div>'
+            html += '</div>'
+        }
 
 
             $('#pins').append(html);
