@@ -7,7 +7,7 @@ try:
     from fabsettings import host
     env.hosts = host
 except:
-    env.hosts = ['proxz@ec2-54-247-34-251.eu-west-1.compute.amazonaws.com']
+    env.hosts = ['proxz@lookify.se']
 env.directory = '/home/ubuntu/ProjectY'
 env.activate = 'source /home/ubuntu/ProjectY/projecty/bin/activate'
 env.deploy_user = 'ubuntu'
@@ -115,7 +115,7 @@ def deploy_db_change(branch='master'):
     install_requirements()
     update_git_submodules()
     migrate()
-    compress()
+    #compress()
     collectstatic()
     restart_gunicorn()
 
@@ -124,6 +124,6 @@ def deploy(branch='master'):
     git_pull(branch=branch)
     install_requirements()
     update_git_submodules()
-    compress()
+    #compress()
     collectstatic()
     restart_gunicorn()
