@@ -92,8 +92,8 @@ $(window).ready(function () {
 
 	    // all this html code should be a underscore template -> we dont need a frigging if case here
             if (typeof _gaq != 'undefined') {
-                html += '<a onclick="_gaq.push(['_trackEvent', 'Image overlay', 'Click - mer info'])" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">MER INFO</a>';
-                html += '<a onclick="_gaq.push(['_trackEvent', 'Image overlay', 'Click - buy'])" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">K&Ouml;P</a>';
+                html += '<a onclick="_gaq.push(["_trackEvent", "Image overlay", "Click - mer info"])" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">MER INFO</a>';
+                html += '<a onclick="_gaq.push(["_trackEvent", "Image overlay", "Click - buy"])" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">K&Ouml;P</a>';
 	    } else {
                 html += '<a target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">MER INFO</a>';
                 html += '<a target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">K&Ouml;P</a>';
