@@ -14,7 +14,6 @@ class Category(models.Model):
         return self.name
 
 
-
 class Pin(models.Model):
     submitter = models.ForeignKey(User)
     url = models.TextField(blank=True, null=True)

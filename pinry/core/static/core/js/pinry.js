@@ -2,7 +2,7 @@
  * Based on Wookmark's endless scroll.
  */
 $(window).ready(function () {
-    var apiURL = '/api/pin/?format=json&offset='
+    var apiURL = '/api/pin/?format=json&offset=';
     var page = 0;
     var handler = null;
     var isLoading = false;
@@ -15,6 +15,7 @@ $(window).ready(function () {
             var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100 - 500);
             if(closeToBottom) loadData();
         }
+
     };
 
     function applyLayout() {
@@ -52,7 +53,9 @@ $(window).ready(function () {
         data = data.objects;
         isLoading = false;
         $('#loader').hide();
-
+	
+	// FIXME: Track category too
+	_kmq.push(['record', 'Loaded page', {'Page number': page}]);
         _gaq.push(['_trackEvent', 'Visited page', page, page, page])
 
         page++;
