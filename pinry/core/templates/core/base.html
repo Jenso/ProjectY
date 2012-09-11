@@ -49,6 +49,33 @@
 
   </head>
   <body>
+    <!-- Underscore.js Templates -->
+    <script type="text/template" id="tpl-image-overlay">
+      <div class="pin">
+	<a class="fancybox" rel="pins" href="#<%= image.id+ %>">
+          <img src="<%=image.url %>" width="200" >
+          <strong class="PriceContainer">
+            <p class="product-price">SEK image.price</p>
+          </strong>
+        </a>
+        <p class="product-name">image.name</p>
+        <p class="product-brand">image.brand</p>
+
+      </div>
+
+      <div class="product-overlay" id="<%= id %>">
+        <img src="'+image.url+'"/>
+        <div class="product-info">
+          <p class="overlay-name">image.name</p>
+          <p class="overlay-brand"><span>Fr&aring;n </span>image.brand</p>
+          <p class="overlay-price">image.price SEK</p>
+          <p class="overlay-description">image.real_description</p>
+          <a onclick="_gaq.push([&quot;_trackEvent&quot;, &quot;Image overlay&quot;, &quot;Click - mer info&quot;]);" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">MER INFO</a>
+          <a onclick="_gaq.push([&quot;_trackEvent&quot;, &quot;Image overlay&quot;, &quot;Click - buy&quot;])" target="_blank" class="btn btn-warning btn-large" href="'+image.tracking_url+'">K&Ouml;P</a>
+        </div>
+      </div>
+    </script>
+
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <a href="{% url core:home %}" class="brand" style="background-image:url('{{ STATIC_URL }}media/img/logo.png');background-repeat:none;"/></a>

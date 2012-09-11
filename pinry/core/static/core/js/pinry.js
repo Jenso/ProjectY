@@ -2,7 +2,7 @@
  * Based on Wookmark's endless scroll.
  */
 $(window).ready(function () {
-    var apiURL = '/api/pin/?format=json&offset=';
+    var apiURL = '/api/pin/?format=json&category=["Midiklänningar", "Basklänningar", "Maxiklänningar", "Miniklänningar", "Klänningar", "Minikjolar", "Midikjolar"]&offset=';
     var page = 0;
     var handler = null;
     var isLoading = false;
