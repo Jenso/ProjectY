@@ -2,7 +2,7 @@
  * Based on Wookmark's endless scroll.
  */
 $(window).ready(function () {
-    var apiURL = '/api/pin/?format=json&category=["Midiklänningar", "Basklänningar", "Maxiklänningar", "Miniklänningar", "Klänningar", "Minikjolar", "Midikjolar"]&offset=';
+    var apiURL = '/api/pin/?format=json&offset=';
     var page = 0;
     var handler = null;
     var isLoading = false;
@@ -17,6 +17,23 @@ $(window).ready(function () {
         }
 
     };
+
+    function filter() {
+
+	var data = document.URL.split("?");
+	var filter_param = data[data.length-1];
+	console.log(filter_param, "woo");
+	isLoading = true;
+        $('#loader').show();
+
+        $.ajax({
+            //url: apiURL+"0"+'&category=["' + filter_param + '"]',
+	    url: apiURL+"0"+'&category=["Klänningar"]',
+            success: onLoadData
+        });
+
+    };
+    $(document).bind('#test click', filter);
 
     function applyLayout() {
         $('#pins').imagesLoaded(function() {
@@ -41,7 +58,7 @@ $(window).ready(function () {
         $('#loader').show();
 
         $.ajax({
-            url: apiURL+(page*20),
+            url: apiURL+(page*20)+'&category=["Midiklänningar", "Basklänningar", "Maxiklänningar", "Miniklänningar", "Klänningar", "Minikjolar", "Midikjolar"]',
             success: onLoadData
         });
     };
@@ -119,6 +136,9 @@ $(window).ready(function () {
             arrows: false,
             afterShow: function() {
                 if (typeof _gaq != 'undefined') {
+
+		    // FIXME: Track which inage id
+		    _kmq.push(['record', 'Image open', {'Image_id': 1337}]);
                     _gaq.push(['_trackEvent', 'Image', 'Open'])
                 }
 
