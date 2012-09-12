@@ -1,13 +1,38 @@
 .navbar-inner .brand {
 	height:36px;
-	display: block;
-	width: 200px;
-	background-repeat: no-repeat;
-	margin-left:-120px;
+	width: 200px;	
 	margin-top:5px;
-	  position: fixed;
-  left: 50%;
+	margin-left:20px;
+	background-repeat: no-repeat;
+	/*
+	display: block;
+	
+	
+	margin-left:-120px;
+
+	position: fixed;
+	xleft: 50%;
   z-index: 1000;
+*/
+}
+
+.navbar-inner .categories{
+	display: block;
+	margin-left:-60px;
+	margin-top:15px;
+	position: fixed;
+	left: 50%;
+	z-index: 1000;
+	font-size:16px;
+	color:#555555;
+	text-transform: uppercase;
+	font-weight: 200;
+	letter-spacing: 1px;
+}
+
+.navbar-inner .categories:hover{
+	color:black;
+	text-decoration: none;
 }
 
 .product-overlay{
@@ -123,3 +148,16 @@
 	max-width: 250px;
 }
 
+.modal{
+	z-index: 50;
+}
+
+.dropdown-menu{
+	left:50%;
+	margin-left:-60px;
+	
+}
+
+.dropdown-menu li{
+	display:inline; 
+}

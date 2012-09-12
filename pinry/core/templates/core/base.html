@@ -79,6 +79,18 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <a href="{% url core:home %}" class="brand" style="background-image:url('{{ STATIC_URL }}media/img/logo.png');background-repeat:none;"/></a>
+          <a class="dropdown-toggle categories" data-toggle="dropdown" href="#">Kategorier</a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li><a href="#">Kl&auml;nningar & Kjolar</a></li>  
+    <li><a href="#">Tr&ouml;jor</a></li>
+    <li><a href="#">T-shirtar & Toppar</a></li>
+    <li><a href="#">Jackor & Kappor</a></li>
+    <li><a href="#">Kavajer & V&auml;star</a></li>
+    <li><a href="#">Byxor & Jeans</a></li>    
+    <li><a href="#">Skjortor & Blusar</a></li>
+    <li><a href="#">Underkl&auml;der</a></li>
+  </ul>
+  
 <ul class="nav pull-right">
   {% if user.is_authenticated %}
   <button id="test">tryck</button>
