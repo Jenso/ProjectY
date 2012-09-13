@@ -225,7 +225,7 @@ Pinry.addInitializer(function(options){
 	    trackCategory("Klanningar");
         },
 	defaultRoute: function() {
-	    global_filter = '["Blusar", "Midiklänningar", "Basklänningar", "Maxiklänningar", "Miniklänningar", "Klänningar", "Minikjolar", "Midikjolar"]';
+	    global_filter = '["Blusar %26amp%3B Tunikor", "Skjortor", "Vardag", "Rutiga %26amp%3B Randiga", "Midiklänningar", "Basklänningar", "Maxiklänningar", "Miniklänningar", "Klänningar", "Minikjolar", "Midikjolar"]';
 	    PinsView1.firstFetch();
 	},
     });
