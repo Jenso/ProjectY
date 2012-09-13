@@ -156,7 +156,10 @@ var PinsView = Backbone.Marionette.CollectionView.extend({
                 type: 'error'
             });
         } else {
-	    _kmq.push(['record', 'Loaded page', {'Page number': collection.currentPage}]);
+	    if(collection.currentPage % 5 == 0) {
+		_kmq.push(['record', 'Loaded page', {'Page number': collection.currentPage}]);
+	    }
+
             this.isLoading = false;
             $('#loading-animation').hide(0);
             this.applyLayout();
