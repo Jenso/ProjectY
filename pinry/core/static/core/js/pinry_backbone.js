@@ -206,7 +206,13 @@ Pinry.addInitializer(function(options){
     MyRouter = Backbone.Marionette.AppRouter.extend({
         routes : {
             "klänningar" : "categoryKlanningar",
+	    "blusar-skjortor" : "categoryBlusarSkjortor",
 	    "*actions": "defaultRoute",
+        },
+	categoryBlusarSkjortor: function() {
+	    global_filter = '["Sovplagg"]';
+	    openMainRegion();
+	    trackCategory("Blusar");
         },
         categoryKlanningar: function() {
 	    global_filter = '["Midiklänningar", "Basklänningar", "Maxiklänningar", "Miniklänningar", "Klänningar", "Minikjolar", "Midikjolar"]';
@@ -214,7 +220,7 @@ Pinry.addInitializer(function(options){
 	    trackCategory("Klanningar");
         },
 	defaultRoute: function() {
-	    global_filter = '[]';
+	    global_filter = '["Blusar", "Midiklänningar", "Basklänningar", "Maxiklänningar", "Miniklänningar", "Klänningar", "Minikjolar", "Midikjolar"]';
 	    openMainRegion();
 	},
     });
