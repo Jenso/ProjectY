@@ -80,16 +80,31 @@
       <div class="navbar-inner">
         <a href="{% url core:home %}" class="brand" style="background-image:url('{{ STATIC_URL }}media/img/logo.png');background-repeat:none;"/></a>
           <a class="dropdown-toggle categories" data-toggle="dropdown" href="#">Kategorier</a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    <li><a href="#">Kl&auml;nningar & Kjolar</a></li>  
-    <li><a href="#">Tr&ouml;jor</a></li>
-    <li><a href="#">T-shirtar & Toppar</a></li>
-    <li><a href="#">Jackor & Kappor</a></li>
-    <li><a href="#">Kavajer & V&auml;star</a></li>
-    <li><a href="#">Byxor & Jeans</a></li>    
-    <li><a href="#">Skjortor & Blusar</a></li>
-    <li><a href="#">Underkl&auml;der</a></li>
-  </ul>
+  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    
+    <!-- Kategori 1 -->
+    <a href="#kl&auml;nningar">Kl&auml;nningar & Kjolar
+  
+  <img style="width:120px;display:inline-block; float:left; margin-left:30px; margin-top:20px;" src="{{ STATIC_URL }}media/img/category-dress.jpg"/>
+    </a> 	
+        <!-- END Kategori 1 -->
+          <!-- Kategori 2 -->
+    <a href="#blusar-skjortor">Blusar & Skjortor
+	      
+  <img style="width:120px;display:inline-block; float:left; margin-left:40px; margin-top:20px;" src="{{ STATIC_URL }}media/img/category-blus.jpg"/>
+    </a>
+     <!-- END Kategori 2 -->
+    
+<!--
+    <a href="#">Tr&ouml;jor</a>
+    <a href="#">T-shirtar & Toppar</a>
+    <a href="#">Jackor & Kappor</a>
+    <a href="#">Kavajer & V&auml;star</a>
+    <a href="#">Byxor & Jeans</a> 
+    <a href="#">Skjortor & Blusar</a>
+    <a href="#">Underkl&auml;der</a>
+-->
+  </div>
   
 <ul class="nav pull-right">
   {% if user.is_authenticated %}
