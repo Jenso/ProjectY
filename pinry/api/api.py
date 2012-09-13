@@ -24,7 +24,7 @@ class PinResource(ModelResource):  # pylint: disable-msg=R0904
         return orm_filters
 
     class Meta:
-        queryset = Pin.objects.all()
+        queryset = Pin.objects.order_by('?')
         resource_name = 'pin'
         include_resource_uri = False
         filtering = {
