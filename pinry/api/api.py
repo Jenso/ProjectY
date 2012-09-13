@@ -17,8 +17,8 @@ class PinResource(ModelResource):  # pylint: disable-msg=R0904
 
         orm_filters = super(PinResource, self).build_filters(filters)
 
-        # unsafe?
-        if filters['category']:
+        # FIXME: unsafe? .. Should be some validation that it's at correct list
+        if filters.has_key('category') and filters['category'] != "[]":
             import json
             orm_filters["category__name__in"] = json.loads(filters['category'])
         return orm_filters
@@ -29,7 +29,7 @@ class PinResource(ModelResource):  # pylint: disable-msg=R0904
         include_resource_uri = False
         filtering = {
             'published': ['gt'],
-            "category": (ALL_WITH_RELATIONS)#, SHOULD FRIGGIN WORK, BUT IT DONT :(
+            "category": (ALL_WITH_RELATIONS)
         }
 
 
@@ -38,6 +38,5 @@ class UserResource(ModelResource):
         queryset = User.objects.all()
         resource_name = 'auth/user'
         excludes = ['email', 'password', 'is_superuser']
-        # Add it here.
         authentication = BasicAuthentication()
         authorization = DjangoAuthorization()
