@@ -156,6 +156,7 @@ var PinsView = Backbone.Marionette.CollectionView.extend({
                 type: 'error'
             });
         } else {
+	    console.log(collection.currentPage % 5, collection.currentPage);
 	    if(collection.currentPage % 5 == 0) {
 		_kmq.push(['record', 'Loaded page', {'Page number': collection.currentPage}]);
 	    }
