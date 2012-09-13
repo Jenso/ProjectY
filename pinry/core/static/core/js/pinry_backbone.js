@@ -112,12 +112,17 @@ var PinsView = Backbone.Marionette.CollectionView.extend({
     initialize: function() {
         var _this = this;
         this.initFancybox();
-        _.bindAll(this, 'loadData', 'fetchSuccess', 'onScroll');
-        this.collection.pager({
+        _.bindAll(this, 'loadData', 'fetchSuccess', 'onScroll', 'firstFetch');
+        $(document).bind('scroll', this.onScroll);
+    },
+    firstFetch: function() {
+	// reset the Pager, since we go between categorys
+	this.collection.currentPage=0;
+
+	this.collection.pager({
             error: this.fetchError, success: this.fetchSuccess,
         });
 
-        $(document).bind('scroll', this.onScroll);
     },
     applyLayout: function() {
         $('#pins').imagesLoaded(function() {
@@ -162,7 +167,7 @@ var PinsView = Backbone.Marionette.CollectionView.extend({
             text: 'Inga fler bilder kunde hämtas!',
             type: 'error'
         });*/
-	console.log("error");
+	//console.log("error");
     },
     loadData: function() {
         $('#loader').show();
@@ -192,16 +197,16 @@ var PinsView = Backbone.Marionette.CollectionView.extend({
 });
 
 Pinry.addInitializer(function(options){
-    function openMainRegion() {
-	Pinry.mainRegion.close();
-	var PinsView1 = new PinsView({
-	    collection: new PinsPagerCollection()
-	});
-	Pinry.mainRegion.show(PinsView1);
-    }
     function trackCategory(category) {
 	_kmq.push(['record', 'Changed category', {'Category': category}]);
     }
+
+    var collection = new PinsPagerCollection();
+    var PinsView1 = new PinsView({
+	collection: collection
+    });
+
+    Pinry.mainRegion.show(PinsView1);
 
     MyRouter = Backbone.Marionette.AppRouter.extend({
         routes : {
@@ -211,17 +216,17 @@ Pinry.addInitializer(function(options){
         },
 	categoryBlusarSkjortor: function() {
 	    global_filter = '["Blusar %26amp%3B Tunikor", "Skjortor", "Vardag", "Rutiga %26amp%3B Randiga"]';
-	    openMainRegion();
+	    PinsView1.firstFetch();
 	    trackCategory("Blusar");
         },
         categoryKlanningar: function() {
 	    global_filter = '["Midiklänningar", "Basklänningar", "Maxiklänningar", "Miniklänningar", "Klänningar", "Minikjolar", "Midikjolar"]';
-	    openMainRegion();
+	    PinsView1.firstFetch();
 	    trackCategory("Klanningar");
         },
 	defaultRoute: function() {
 	    global_filter = '["Blusar", "Midiklänningar", "Basklänningar", "Maxiklänningar", "Miniklänningar", "Klänningar", "Minikjolar", "Midikjolar"]';
-	    openMainRegion();
+	    PinsView1.firstFetch();
 	},
     });
     var app_router = new MyRouter();
