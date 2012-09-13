@@ -210,7 +210,7 @@ Pinry.addInitializer(function(options){
 	    "*actions": "defaultRoute",
         },
 	categoryBlusarSkjortor: function() {
-	    global_filter = '["Sovplagg"]';
+	    global_filter = '["Blusar %26amp%3B Tunikor", "Skjortor", "Vardag", "Rutiga %26amp%3B Randiga"]';
 	    openMainRegion();
 	    trackCategory("Blusar");
         },
